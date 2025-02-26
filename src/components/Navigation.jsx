@@ -44,7 +44,7 @@ function Navigation() {
       </button>
       <div className={`md:hidden transition-all duration-400 ease-in-out ${menuOpen ? 'max-h-screen' : 'max-h-0 overflow-hidden'}`}>
         <nav className="flex flex-col space-y-2 p-4 text-2xl text-center">
-          <ul className="space-y-6">
+          <ul className="space-y-8">
             <li>
               <Link to="/" className="p-2 hover:font-bold">Now Playing</Link>
             </li>

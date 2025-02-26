@@ -1,10 +1,10 @@
-import React from 'react';
 import Navigation from './components/Navigation';
 import { Route, Routes } from 'react-router-dom';
 import NowPlayingPage from './pages/NowPlayingPage';
 import UpcomingPage from './pages/UpcomingPage';
 import NotFoundPage from './pages/NotFoundPage';
 import Footer from './components/Footer';
+import DetailPage from './pages/DetailPage';
 
 function App() {
   return (
@@ -19,6 +19,7 @@ function App() {
             <Route path='/' element={<NowPlayingPage />}/>
             <Route path='/upcoming' element={<UpcomingPage />} />
             <Route path='/*' element={<NotFoundPage />} />
+            <Route path='/detail/:movieId' element={<DetailPage />} />
           </Routes>
         </main>
         <Footer />

@@ -20,7 +20,7 @@ function UpcomingPage() {
 
     fetchMovies();
     console.log(movies);
-  }, []);
+  }, [movies]);
 
   if (loading) {
     return (

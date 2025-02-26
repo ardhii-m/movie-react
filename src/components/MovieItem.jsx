@@ -1,11 +1,8 @@
-import React from "react";
 import PropTypes from "prop-types";
-
 import MovieItemBody from "./MovieItemBody";
-import { BASE_IMAGE_URL } from '../utils/network-data';
+import CONFIG from "../utils/config";
 
 function MovieItem({ id, title, vote_average, overview, backdrop_path }) { 
-
   return (
     <article className="relative rounded-lg overflow-hidden shadow-md"> 
       <MovieItemBody
@@ -13,7 +10,7 @@ function MovieItem({ id, title, vote_average, overview, backdrop_path }) {
         title={title}
         vote_average={vote_average}
         overview={overview}
-        imageUrl={`${BASE_IMAGE_URL}${backdrop_path}`} // Full image URL
+        imageUrl={`${CONFIG.BASE_IMAGE_URL}${backdrop_path}`} // Full image URL
       />
     </article>
   )

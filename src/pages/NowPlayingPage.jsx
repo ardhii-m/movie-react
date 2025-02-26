@@ -20,7 +20,7 @@ function NowPlayingPage() {
 
     fetchMovies();
     console.log(movies);
-  }, []);
+  }, [movies]);
 
   if (loading) {
     return (

@@ -1,5 +1,3 @@
-import React from "react";
-
 function NotFoundPage() {
   return (
     <section className="text-center">
