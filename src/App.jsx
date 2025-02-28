@@ -6,6 +6,18 @@ import NotFoundPage from './pages/NotFoundPage';
 import Footer from './components/Footer';
 import DetailPage from './pages/DetailPage';
 
+// TODO
+//  PWA
+//  - Service Worker
+//  - Manifest
+// - CacheStorage API
+// Change Color Scheme
+// - Text Color : #ECF0F1
+// - Background Color : #2C3E50
+// - Accent Color : #3498DB
+// - Second Accent : #E67E22
+
+
 function App() {
   return (
     <>

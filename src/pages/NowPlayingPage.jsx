@@ -9,7 +9,7 @@ function NowPlayingPage() {
   React.useEffect(() => {
     async function fetchMovies() {
       try {
-        const moviesData = await getNowPlaying();
+        const moviesData = await getNowPlaying(20);
         setMovies(moviesData);
       } catch (error) {
         console.error('failed to fetch movies:', error);
@@ -19,8 +19,7 @@ function NowPlayingPage() {
     }
 
     fetchMovies();
-    console.log(movies);
-  }, [movies]);
+  }, []);
 
   if (loading) {
     return (
