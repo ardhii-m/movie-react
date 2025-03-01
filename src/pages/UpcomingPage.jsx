@@ -26,7 +26,7 @@ function UpcomingPage() {
   if (loading) {
     return (
       <section>
-        <p className="text-center text-3xl py-4 font-semibold">Loading...</p>
+        <h2 className="text-center text-3xl py-4 font-semibold">Loading...</h2>
       </section>
     );
   }
