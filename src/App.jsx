@@ -39,7 +39,7 @@ function App() {
         data-theme={theme === "light" ? "light" : "dark"}
         className="flex flex-col min-h-screen bg-[var(--bg-color)] text-[var(--text-color)] transition-all duration-300"
       >
-        <header className="flex flex-col sm:flex-row items-center gap-4 justify-between px-8 shadow-md py-4 bg-[var(--accent-color)] text-[var(--text-color)]">
+        <header className="flex flex-col sm:flex-row items-center gap-4 justify-between px-8 shadow-md py-4">
           <h1 className="text-center font-bold text-3xl sm:text-3xl">
             MOVIE CATALOGUE
           </h1>
