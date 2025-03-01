@@ -4,10 +4,10 @@
 
 :root {
   /* Light theme by default */
-  --text-color: #2c3e50;
+  --text-color: #18212B;
   --bg-color: #f5f7fa;
-  --accent-color: #3498db;
-  --second-accent: #e67e22;
+  --accent-color: #57BCFF;
+  --second-accent: #FF9A57;
   --card-bg: #ffffff;
   --card-text: #2c3e50;
   --card-border: #d1d5db;
@@ -16,8 +16,8 @@
 [data-theme="dark"] {
   --text-color: #ecf0f1;
   --bg-color: #1a252f;
-  --accent-color: #2980b9;
-  --second-accent: #d35400;
+  --accent-color: #0D4372;
+  --second-accent: #7E3200;
   --card-bg: #1e2a38;
   --card-text: #ecf0f1;
   --card-border: #4b5563;
@@ -26,6 +26,11 @@
 body {
   font-family: "Poppins", sans-serif;
   transition: all 0.2s ease;
+}
+
+header {
+  background-color: var(--accent-color);
+  color: var(--text-color);
 }
 
 /* .movie-title {
