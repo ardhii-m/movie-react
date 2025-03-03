@@ -12,13 +12,10 @@ function MoviesList({ movies }) {
             title={movie.title}
             vote_average={movie.vote_average}
             overview={movie.overview}
-            backdrop_path={movie.backdrop_path} 
+            backdrop_path={movie.backdrop_path}
           />
         ))
       ) : (
-        // <p className="">
-        //   {locale === "id" ? "Tidak ada catatan" : "Notes is empty"}
-        // </p>
         <p>Movies List is Empty.</p>
       )}
     </section>

@@ -4,20 +4,20 @@
 
 :root {
   /* Light theme by default */
-  --text-color: #18212B;
+  --text-color: #18212b;
   --bg-color: #f5f7fa;
-  --accent-color: #57BCFF;
-  --second-accent: #FF9A57;
+  --accent-color: #57bcff;
+  --second-accent: #ff9a57;
   --card-bg: #ffffff;
-  --card-text: #18212B;
+  --card-text: #18212b;
   --card-border: #d1d5db;
 }
 
 [data-theme="dark"] {
   --text-color: #ecf0f1;
   --bg-color: #1a252f;
-  --accent-color: #0D4372;
-  --second-accent: #7E3200;
+  --accent-color: #0d4372;
+  --second-accent: #7e3200;
   --card-bg: #1e2a38;
   --card-text: #ecf0f1;
   --card-border: #4b5563;
@@ -33,6 +33,7 @@ header {
   color: var(--text-color);
 }
 
-/* .movie-title {
-  font-family: 'Bebas Neue', sans-serif;
-} */
+header > h1 {
+  font-family: "Bebas Neue", sans-serif;
+}
+

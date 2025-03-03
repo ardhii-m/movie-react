@@ -41,7 +41,7 @@ function MovieDetail({
           {/* Rating */}
           <h4 className="text-2xl font-medium">Rating</h4>
           <p className="text-xl flex items-center gap-1">
-            <FaStar className="text-yellow-400" /> {vote_average}
+            <FaStar className="text-yellow-400" /> {vote_average.toFixed(1)}
           </p>
 
           {/* Genres */}

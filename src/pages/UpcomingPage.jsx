@@ -15,7 +15,11 @@ function UpcomingPage() {
       <h2 className="text-center text-3xl py-4 font-semibold">
         Upcoming Movies
       </h2>
-      <MoviesList movies={movies} />
+      {movies.length > 0 ? (
+        <MoviesList movies={movies} />
+      ) : (
+        <p className="text-center text-lg py-4 font-semibold">There are no upcoming movies right now.</p>
+      )}
     </section>
   );
 }

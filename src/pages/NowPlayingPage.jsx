@@ -13,7 +13,11 @@ function NowPlayingPage() {
   return (
     <section>
       <h2 className="text-center text-3xl py-4 font-semibold">Now Playing</h2>
-      <MoviesList movies={movies} />
+      {movies.length > 0 ? (
+        <MoviesList movies={movies} />
+      ) : (
+        <p className="text-center text-lg py-4 font-semibold">There are no movies playing right now.</p>
+      )}
     </section>
   );
 }

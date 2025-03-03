@@ -1,6 +1,6 @@
 function Footer() {
   return (
-    <footer className="text-center text-xl mt-8 py-4 bg-[var(--second-accent)]">
+    <footer className="text-center text-xl mt-8 py-4 bg-[var(--accent-color)]">
       <p className="">
         Source data obtained from{" "}
         <a

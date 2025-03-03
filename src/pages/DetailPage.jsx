@@ -36,7 +36,7 @@ function DetailPage() {
   if (loading) {
     return (
       <section>
-        <p className="text-[#2C3E50] text-center text-3xl py-4 font-semibold">Loading...</p>
+        <p className="text-center text-3xl py-4 font-semibold">Loading...</p>
       </section>
     );
   }
@@ -44,7 +44,7 @@ function DetailPage() {
   if (!movie) {
     return (
       <section>
-        <p className="text-center text-[#2C3E50] text-3xl py-4">Failed to load movie details.</p>
+        <p className="text-center text-3xl py-4">Failed to load movie details.</p>
       </section>
     );
   }

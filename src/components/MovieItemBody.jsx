@@ -13,16 +13,16 @@ function MovieItemBody({ id, title, vote_average, overview, imageUrl }) {
         />
         <p className="absolute p-2 top-2 left-2 bg-[#2C3E50] text-white font-semibold text-sm rounded-full flex items-center gap-1">
           <FaStar className="text-yellow-400" />
-          <span>{vote_average}</span>
+          <span>{vote_average.toFixed(1)}</span>
         </p>
       </div>
       <div className="flex flex-col p-2">
         <h3 className="px-1 pt-1.5 font-bold text-2xl truncate">
-          <Link to={`/detail/${id}`} className="">
+          <Link to={`/detail/${id}`}>
             {title}
           </Link>
         </h3>
-        <p className=" px-1 mt-2 mb-2 text-lg text-justify line-clamp-6">
+        <p className="px-1 mt-2 mb-2 text-lg text-justify line-clamp-6">
           {overview}
         </p>
       </div>
