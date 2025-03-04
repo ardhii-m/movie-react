@@ -1,7 +1,7 @@
 function Footer() {
   return (
     <footer className="text-center text-xl mt-8 py-4 bg-[var(--accent-color)]">
-      <p className="">
+      <p className="px-4 py-1.5">
         Source data obtained from{" "}
         <a
           className="font-semibold"

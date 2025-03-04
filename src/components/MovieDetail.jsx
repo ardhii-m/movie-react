@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import CONFIG from "../utils/config";
 import { FaStar } from "react-icons/fa";
+import FavoriteButton from "./FavoriteButton";
 
 function MovieDetail({
   title,
@@ -12,6 +13,8 @@ function MovieDetail({
   poster_path,
   genres,
   cast,
+  isFavorite,
+  onToggleFavorite,
 }) {
   return (
     <section className="max-w-4xl mx-auto p-4">
@@ -57,6 +60,11 @@ function MovieDetail({
               ? cast.join(", ")
               : "No cast information available."}
           </p>
+
+          <FavoriteButton
+            isFavorite={isFavorite}
+            onToggleFavorite={onToggleFavorite}
+          />
         </div>
       </div>
 
@@ -79,6 +87,8 @@ MovieDetail.propTypes = {
   poster_path: PropTypes.string.isRequired,
   genres: PropTypes.arrayOf(PropTypes.string),
   cast: PropTypes.arrayOf(PropTypes.string),
+  isFavorite: PropTypes.bool,
+  onToggleFavorite: PropTypes.func,
 };
 
 export default MovieDetail;

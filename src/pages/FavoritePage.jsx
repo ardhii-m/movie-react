@@ -1,26 +1,21 @@
-import React from "react";
 import MoviesList from "../components/MoviesList";
 import Loading from "../components/Loading";
+import { getAllFavorites } from "../utils/favoritesDB";
+import useFetchMovies from "../hooks/useFetchMovies";
 
 function FavoritePage() {
-  const [favorites, setFavorites] = React.useState([]);
-  const [loading, setLoading] = React.useState(true);
-
-  React.useEffect(() => {
-    const favoritesCache = JSON.parse(localStorage.getItem("favorites")) || [];
-    setFavorites(favoritesCache);
-    setLoading(false);
-  }, []);
-
+  const { movies, loading } = useFetchMovies(getAllFavorites);
   if (loading) {
     return <Loading />;
   }
 
   return (
     <section>
-      <h2 className="text-center text-3xl py-4 font-semibold">Favorite Movies</h2>
-      {favorites.length > 0 ? (
-        <MoviesList movies={favorites} />
+      <h2 className="text-center text-3xl py-4 font-semibold">
+        Favorite Movies
+      </h2>
+      {movies.length > 0 ? (
+        <MoviesList movies={movies} />
       ) : (
         <p className="text-center text-lg py-4 font-semibold">
           You have no favorite movies yet.
