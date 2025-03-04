@@ -1,40 +1,25 @@
-import React from "react";
 import { getNowPlaying } from "../utils/network-data";
 import MoviesList from "../components/MoviesList";
+import Loading from "../components/Loading";
+import useFetchMovies from "../hooks/useFetchMovies";
 
 function NowPlayingPage() {
-  const [movies, setMovies] = React.useState([]);
-  const [loading, setLoading] = React.useState(true);
-
-  React.useEffect(() => {
-    async function fetchMovies() {
-      try {
-        const moviesData = await getNowPlaying(20);
-        setMovies(moviesData);
-      } catch (error) {
-        console.error('failed to fetch movies:', error);
-      } finally {
-        setLoading(false);
-      }
-    }
-
-    fetchMovies();
-  }, []);
+  const { movies, loading } = useFetchMovies(getNowPlaying);
 
   if (loading) {
-    return (
-      <section>
-        <h2 className="text-center text-3xl py-4 font-semibold">Loading...</h2>
-      </section>
-    );
+    return <Loading />;
   }
 
-  return(
+  return (
     <section>
       <h2 className="text-center text-3xl py-4 font-semibold">Now Playing</h2>
-      <MoviesList movies={movies} />
+      {movies.length > 0 ? (
+        <MoviesList movies={movies} />
+      ) : (
+        <p className="text-center text-lg py-4 font-semibold">There are no movies playing right now.</p>
+      )}
     </section>
-  )
+  );
 }
 
 export default NowPlayingPage;

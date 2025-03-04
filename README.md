@@ -11,13 +11,14 @@ An interactive web application that allows users to search for movies, view deta
 
 ## Features
 
+- Installable Web App
 - View detailed information about each movie
 - Add or remove favorite movies (Work in Progress)
 - Responsive design for optimal viewing in various devices
 
 ## Demo
 
-[Access the live demo](https://movie-catalogue-react.vercel.app/)
+Access the live demo [here](https://movie-catalogue-react.vercel.app/)
 
 ## Technologies Used
 - React.js

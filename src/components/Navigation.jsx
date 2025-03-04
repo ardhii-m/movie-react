@@ -17,30 +17,27 @@ function Navigation() {
       <nav className="hidden md:flex ">
         <ul className="flex space-x-4 text-lg justify-between items-center">
           <li>
-            <button onClick={toggleTheme} className="text-2xl flex items-center space-x-1 cursor-pointer">
+            <button
+              onClick={toggleTheme}
+              className="p-1.5 text-2xl flex items-center space-x-1 cursor-pointer hover:bg-[var(--second-accent)] rounded-2xl transition-colors duration-200"
+            >
               {theme === "light" ? <FaSun /> : <FaMoon />}
             </button>
           </li>
-          <li>
-            <button>
-              <Link to="/" className="p-2 hover:font-bold space-x-1">
-                Now Playing
-              </Link>
-            </button>
+          <li className="rounded-full hover:bg-[var(--second-accent)] transition-colors duration-200">
+            <Link to="/" className="block p-2">
+              Now Playing
+            </Link>
           </li>
-          <li>
-            <button>
-              <Link to="/upcoming" className="p-2 hover:font-bold space-x-1">
-                Upcoming
-              </Link>
-            </button>
+          <li className="rounded-full hover:bg-[var(--second-accent)] transition-colors duration-200">
+            <Link to="/upcoming" className="block p-2">
+              Upcoming
+            </Link>
           </li>
-          <li>
-            <button>
-              <Link to="/favorite" className="p-2 hover:font-bold space-x-1">
-                Favorites
-              </Link>
-            </button>
+          <li className="rounded-full hover:bg-[var(--second-accent)] transition-colors duration-200">
+            <Link to="/favorite" className="block p-2">
+              Favorites
+            </Link>
           </li>
         </ul>
       </nav>
@@ -73,7 +70,11 @@ function Navigation() {
             </li>
             <li>
               <button onClick={toggleTheme}>
-                {theme === "light" ? <FaSun className="text-4xl" /> : <FaMoon className="text-4xl" />}
+                {theme === "light" ? (
+                  <FaSun className="text-4xl" />
+                ) : (
+                  <FaMoon className="text-4xl" />
+                )}
               </button>
             </li>
           </ul>

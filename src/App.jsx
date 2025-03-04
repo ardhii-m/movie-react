@@ -8,10 +8,10 @@ import UpcomingPage from "./pages/UpcomingPage";
 import DetailPage from "./pages/DetailPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import Footer from "./components/Footer";
+import FavoritePage from "./pages/FavoritePage";
 
 // TODO
-//  PWA
-//  - Manifest
+// Hero
 
 function App() {
   const [theme, setTheme] = React.useState(() => {
@@ -40,7 +40,7 @@ function App() {
         className="flex flex-col min-h-screen bg-[var(--bg-color)] text-[var(--text-color)] transition-all duration-300"
       >
         <header className="flex flex-col sm:flex-row items-center gap-4 justify-between px-8 shadow-md py-4">
-          <h1 className="text-center font-bold text-3xl sm:text-3xl">
+          <h1 className="pt-2 text-center font-bold text-6xl sm:text-5xl">
             MOVIE CATALOGUE
           </h1>
           <Navigation />
@@ -51,6 +51,7 @@ function App() {
             <Route path="/upcoming" element={<UpcomingPage />} />
             <Route path="/*" element={<NotFoundPage />} />
             <Route path="/detail/:movieId" element={<DetailPage />} />
+            <Route path="/favorite" element={<FavoritePage />} />
           </Routes>
         </main>
         <Footer />
