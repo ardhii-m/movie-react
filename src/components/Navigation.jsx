@@ -12,14 +12,25 @@ function Navigation() {
   };
 
   return (
-    <>
-      {/* Desktop Navigation */}
-      <nav className="hidden md:flex ">
-        <ul className="flex space-x-4 text-lg justify-between items-center">
+    <header className="sticky top-0 left-0 w-full z-50 bg-[var(--bg-color)] shadow-md">
+      <div className="flex items-center gap-4 justify-between px-8  py-4">
+        <h1 className="pt-2 text-center font-bold text-4xl sm:text-3xl">
+          MOVIE CATALOGUE
+        </h1>
+        <button className="sm:hidden py-2 px-2 text-3xl" onClick={toggleMenu}>
+          <FaBars />
+        </button>
+
+      <nav
+        className={`absolute right-0 top-16 w-2/5 transition-all duration-300 ease-in-out bg-[var(--accent-color)] p-1.5 sm:p-0 ${
+          menuOpen ? "block" : "hidden"
+        } sm:relative sm:flex sm:top-0 sm:w-auto`}
+      > 
+        <ul className="flex flex-col sm:flex-row space-x-4 text-lg sm:items-center items-center align-baseline">
           <li>
             <button
               onClick={toggleTheme}
-              className="p-1.5 text-2xl flex items-center space-x-1 cursor-pointer hover:bg-[var(--second-accent)] rounded-2xl transition-colors duration-200"
+              className="p-2 text-3xl flex items-center space-x-1 cursor-pointer hover:bg-[var(--second-accent)] rounded-2xl transition-colors duration-200"
             >
               {theme === "light" ? <FaSun /> : <FaMoon />}
             </button>
@@ -41,46 +52,8 @@ function Navigation() {
           </li>
         </ul>
       </nav>
-
-      {/* Mobile Navigation */}
-      <button className="sm:hidden text-4xl p-2" onClick={toggleMenu}>
-        <FaBars />
-      </button>
-      <div
-        className={`sm:hidden transition-all duration-300 ease-in-out ${
-          menuOpen ? "max-h-screen" : "max-h-0 overflow-hidden"
-        }`}
-      >
-        <nav className="flex flex-col p-4 text-3xl text-center">
-          <ul className="space-y-12">
-            <li>
-              <Link to="/" className="p-2 hover:font-bold">
-                Now Playing
-              </Link>
-            </li>
-            <li>
-              <Link to="/upcoming" className="p-2 hover:font-bold">
-                Upcoming
-              </Link>
-            </li>
-            <li>
-              <Link to="/favorite" className="p-2 hover:font-bold">
-                Favorites
-              </Link>
-            </li>
-            <li>
-              <button onClick={toggleTheme}>
-                {theme === "light" ? (
-                  <FaSun className="text-4xl" />
-                ) : (
-                  <FaMoon className="text-4xl" />
-                )}
-              </button>
-            </li>
-          </ul>
-        </nav>
       </div>
-    </>
+    </header>
   );
 }
 
