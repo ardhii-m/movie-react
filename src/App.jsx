@@ -39,12 +39,7 @@ function App() {
         data-theme={theme === "light" ? "light" : "dark"}
         className="flex flex-col min-h-screen bg-[var(--bg-color)] text-[var(--text-color)] transition-all duration-300"
       >
-        <header className="flex flex-col sm:flex-row items-center gap-4 justify-between px-8 shadow-md py-4">
-          <h1 className="pt-2 text-center font-bold text-6xl sm:text-5xl">
-            MOVIE CATALOGUE
-          </h1>
-          <Navigation />
-        </header>
+        <Navigation />
         <main className="flex-grow pt-4 mx-5">
           <Routes>
             <Route path="/" element={<NowPlayingPage />} />

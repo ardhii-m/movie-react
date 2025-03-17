@@ -35,7 +35,7 @@ header {
   color: var(--text-color);
 }
 
-header > h1 {
+header h1 {
   font-family: "Bebas Neue", sans-serif;
 }
 
