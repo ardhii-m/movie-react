@@ -9,9 +9,7 @@ import DetailPage from "./pages/DetailPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import Footer from "./components/Footer";
 import FavoritePage from "./pages/FavoritePage";
-
-// TODO
-// Hero
+import SearchPage from "./pages/SearchPage";
 
 function App() {
   const [theme, setTheme] = React.useState(() => {
@@ -44,9 +42,10 @@ function App() {
           <Routes>
             <Route path="/" element={<NowPlayingPage />} />
             <Route path="/upcoming" element={<UpcomingPage />} />
-            <Route path="/*" element={<NotFoundPage />} />
+            <Route path="/search" element={<SearchPage />} />
             <Route path="/detail/:movieId" element={<DetailPage />} />
             <Route path="/favorite" element={<FavoritePage />} />
+            <Route path="/*" element={<NotFoundPage />} />
           </Routes>
         </main>
         <Footer />

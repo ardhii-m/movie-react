@@ -1,7 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import MovieDetail from "../components/MovieDetail";
-import { getMovieCredits, getMovieDetail } from "../utils/network-data";
+import { getMovieCredits, getMovieDetail, getMovieReviews } from "../utils/network-data";
 import { addFavorite, removeFavorite, getFavorite } from "../utils/favoritesDB";
 import Loading from "../components/Loading";
 
@@ -10,18 +10,24 @@ function DetailPage() {
   const [loading, setLoading] = React.useState(true);
   const [movie, setMovie] = React.useState(null);
   const [cast, setCast] = React.useState([]);
+  const [reviews, setReviews] = React.useState([]);
   const [isFavorite, setIsFavorite] = React.useState(false);
 
   React.useEffect(() => {
     const fetchMovieDetails = async () => {
       try {
-        const [movieData, creditsData] = await Promise.all([
+        const [movieData, creditsData, reviewsData] = await Promise.all([
           getMovieDetail(movieId),
           getMovieCredits(movieId),
+          getMovieReviews(movieId),
         ]);
 
         setMovie(movieData);
         setCast(creditsData.cast.slice(0, 6).map((actor) => actor.name));
+        const ratedReviews = reviewsData.filter((review) => review.author_details?.rating);
+        const sortedByRating = ratedReviews.sort((highest, lowest) => highest.author_details.rating - lowest.author_details.rating);
+        const top3Reviews = sortedByRating.slice(0, 3);
+        setReviews(top3Reviews);
 
         const favoriteMovie = await getFavorite(Number(movieId));
         setIsFavorite(!!favoriteMovie);
@@ -71,6 +77,7 @@ function DetailPage() {
         poster_path={movie.poster_path}
         genres={movie.genres.map((genre) => genre.name)}
         cast={cast}
+        reviews={reviews}
         isFavorite={isFavorite}
         onToggleFavorite={toggleFavorite}
       />

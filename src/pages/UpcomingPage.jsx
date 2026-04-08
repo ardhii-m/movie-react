@@ -1,14 +1,15 @@
 import { getUpcomingMovies } from "../utils/network-data";
 import MoviesList from "../components/MoviesList";
 import Loading from "../components/Loading";
+import Pagination from "../components/Pagination";
 import useFetchMovies from "../hooks/useFetchMovies";
+import usePageNavigation from "../hooks/usePageNavigation";
 
 function UpcomingPage() {
-  const { movies, loading } = useFetchMovies(getUpcomingMovies);
+  const { page, handlePageChange } = usePageNavigation();
+  const { movies, loading, totalPages } = useFetchMovies(getUpcomingMovies, page);
 
-  if (loading) {
-    return <Loading />;
-  }
+  if (loading) return <Loading />;
 
   return (
     <section>
@@ -16,7 +17,10 @@ function UpcomingPage() {
         Upcoming Movies
       </h2>
       {movies.length > 0 ? (
-        <MoviesList movies={movies} />
+        <>
+          <MoviesList movies={movies} />
+          <Pagination currentPage={page} totalPages={totalPages} onPageChange={handlePageChange} />
+        </>
       ) : (
         <p className="text-center text-lg py-4 font-semibold">There are no upcoming movies right now.</p>
       )}

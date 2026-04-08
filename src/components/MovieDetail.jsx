@@ -13,6 +13,7 @@ function MovieDetail({
   poster_path,
   genres,
   cast,
+  reviews,
   isFavorite,
   onToggleFavorite,
 }) {
@@ -73,6 +74,28 @@ function MovieDetail({
         <h3 className="text-2xl font-semibold pb-3">Overview</h3>
         <p className="text-justify text-xl">{overview}</p>
       </div>
+
+      {reviews && reviews.length > 0 && (
+        <div className="sm:my-4">
+          <h3 className="text-2xl font-semibold pb-3">Reviews</h3>
+          <div className="space-y-4">
+            {reviews.map((review) => (
+              <div key={review.id} className="p-4 rounded-xl bg-[var(--card-bg)] border border-[var(--card-border)]">
+                <div className="flex items-center justify-between mb-2">
+                  <span className="font-semibold text-2xl">{review.author}</span>
+                  {review.author_details?.rating && (
+                    <span className="p-2 flex items-center gap-1 text-2xl font-medium">
+                      <FaStar className="text-yellow-400" />
+                      {review.author_details.rating}/10
+                    </span>
+                  )}
+                </div>
+                <p className="text-justify line-clamp-5">{review.content}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
     </section>
   );
 }
@@ -87,6 +110,7 @@ MovieDetail.propTypes = {
   poster_path: PropTypes.string.isRequired,
   genres: PropTypes.arrayOf(PropTypes.string),
   cast: PropTypes.arrayOf(PropTypes.string),
+  reviews: PropTypes.arrayOf(PropTypes.object),
   isFavorite: PropTypes.bool,
   onToggleFavorite: PropTypes.func,
 };
