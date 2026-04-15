@@ -1,5 +1,11 @@
 import API_ENDPOINT from "./api-endpoint";
 
+async function getTrendingMovies() {
+  const response = await fetch(API_ENDPOINT.TRENDING);
+  const responseJson = await response.json();
+  return responseJson.results.slice(0, 5);
+}
+
 async function getNowPlaying(page = 1) {
   const response = await fetch(API_ENDPOINT.NOW_PLAYING(page));
   const responseJson = await response.json();
@@ -8,6 +14,12 @@ async function getNowPlaying(page = 1) {
 
 async function getUpcomingMovies(page = 1) {
   const response = await fetch(API_ENDPOINT.UPCOMING(page));
+  const responseJson = await response.json();
+  return { results: responseJson.results, totalPages: responseJson.total_pages };
+}
+
+async function getPopularMovies(page = 1) {
+  const response = await fetch(API_ENDPOINT.POPULAR(page));
   const responseJson = await response.json();
   return { results: responseJson.results, totalPages: responseJson.total_pages };
 }
@@ -34,4 +46,4 @@ async function getMovieReviews(id) {
   return responseJson.results;
 }
 
-export { getNowPlaying, getUpcomingMovies, getMovieDetail, getMovieCredits, searchMovies, getMovieReviews };
+export { getTrendingMovies, getNowPlaying, getUpcomingMovies, getPopularMovies, getMovieDetail, getMovieCredits, searchMovies, getMovieReviews };

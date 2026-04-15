@@ -68,6 +68,11 @@ function Navigation() {
               Upcoming
             </Link>
           </li>
+                    <li className="rounded-md hover:bg-[var(--second-accent)] transition-colors duration-200">
+            <Link to="/popular" className="block p-2">
+              Popular
+            </Link>
+          </li>
           <li className="rounded-md hover:bg-[var(--second-accent)] transition-colors duration-200">
             <Link to="/favorite" className="block p-2">
               Favorites

@@ -10,7 +10,7 @@ function SearchBar({ keyword, keywordChange, onSearch }) {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="search-bar bg-white rounded-md flex items-center">
+    <form onSubmit={handleSubmit} className="search-bar ml-4 mr-16 bg-white rounded-md flex items-center">
       <input
         className="text-center flex-1 px-2 py-1 rounded-l-md border-none outline-none text-black"
         type="text"
