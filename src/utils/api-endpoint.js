@@ -9,6 +9,7 @@ const API_ENDPOINT = {
   CREDITS: (id) => `${CONFIG.BASE_URL}movie/${id}/credits?api_key=${CONFIG.KEY}`,
   SEARCH: (query) => `${CONFIG.BASE_URL}search/movie?api_key=${CONFIG.KEY}&language=${CONFIG.DEFAULT_LANGUAGE}&query=${encodeURIComponent(query)}`,
   REVIEWS: (id) => `${CONFIG.BASE_URL}movie/${id}/reviews?api_key=${CONFIG.KEY}&language=${CONFIG.DEFAULT_LANGUAGE}`,
+  SIMILAR: (id) => `${CONFIG.BASE_URL}movie/${id}/similar?api_key=${CONFIG.KEY}&language=${CONFIG.DEFAULT_LANGUAGE}`,
 };
 
 export default API_ENDPOINT;

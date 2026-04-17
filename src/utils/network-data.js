@@ -34,6 +34,12 @@ async function getMovieCredits(id) {
   return response.json();
 }
 
+async function getSimilarMovies(id) {
+  const response = await fetch(API_ENDPOINT.SIMILAR(id));
+  const responseJson = await response.json();
+  return responseJson.results.slice(0, 5);
+}
+
 async function searchMovies(query) {
   const response = await fetch(API_ENDPOINT.SEARCH(query));
   const responseJson = await response.json();
@@ -46,4 +52,4 @@ async function getMovieReviews(id) {
   return responseJson.results;
 }
 
-export { getTrendingMovies, getNowPlaying, getUpcomingMovies, getPopularMovies, getMovieDetail, getMovieCredits, searchMovies, getMovieReviews };
+export { getTrendingMovies, getNowPlaying, getUpcomingMovies, getPopularMovies, getMovieDetail, getMovieCredits, getSimilarMovies, searchMovies, getMovieReviews };

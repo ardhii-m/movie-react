@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 import CONFIG from "../utils/config";
 import { FaStar } from "react-icons/fa";
 import FavoriteButton from "./FavoriteButton";
@@ -14,6 +15,7 @@ function MovieDetail({
   genres,
   cast,
   reviews,
+  similar,
   isFavorite,
   onToggleFavorite,
 }) {
@@ -96,6 +98,34 @@ function MovieDetail({
           </div>
         </div>
       )}
+
+      {similar && similar.length > 0 && (
+        <div className="sm:my-4">
+          <h3 className="text-2xl font-semibold pb-3">Similar Movies</h3>
+          <div className="flex gap-4 overflow-x-auto pb-2">
+            {similar.map((movie) => (
+              <Link
+                key={movie.id}
+                to={`/detail/${movie.id}`}
+                className="min-w-[320px] max-w-[480px] rounded-xl overflow-hidden bg-[var(--card-bg)] border border-[var(--card-border)] hover:opacity-80 transition-opacity"
+              >
+                <img
+                  src={`${CONFIG.BASE_IMAGE_URL}${movie.backdrop_path}`}
+                  alt={movie.title}
+                  className="w-full h-[200px] object-cover"
+                />
+                <div className="p-2">
+                  <p className="text-sm font-semibold truncate">{movie.title}</p>
+                  <p className="flex items-center gap-1 mt-1">
+                    <FaStar className="text-yellow-400" />
+                    {movie.vote_average?.toFixed(1) ?? "N/A"}
+                  </p>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      )}
     </section>
   );
 }
@@ -111,6 +141,7 @@ MovieDetail.propTypes = {
   genres: PropTypes.arrayOf(PropTypes.string),
   cast: PropTypes.arrayOf(PropTypes.string),
   reviews: PropTypes.arrayOf(PropTypes.object),
+  similar: PropTypes.arrayOf(PropTypes.object),
   isFavorite: PropTypes.bool,
   onToggleFavorite: PropTypes.func,
 };
