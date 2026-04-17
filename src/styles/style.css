@@ -25,9 +25,12 @@
   --card-border: #4b5563;
 }
 
+*, *::before, *::after {
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+}
+
 body {
   font-family: "Poppins", sans-serif;
-  transition: all 0.3s ease-in-out;
 }
 
 header {
@@ -37,5 +40,38 @@ header {
 
 header h1 {
   font-family: "Bebas Neue", sans-serif;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  color: #ffffff !important;
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  font-size: 18px !important;
+  font-weight: 900 !important;
+}
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+  background-color: rgba(90, 90, 90, 0.85) !important;
+  border-color: #ffffff !important;
+}
+
+.swiper-pagination-bullet {
+  background-color: rgba(255, 255, 255, 0.5) !important;
+  opacity: 1 !important;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #ffffff !important;
+  border-radius: 6px !important;
+}
+
+@media (max-width: 640px) {
+  .swiper-button-next, .swiper-button-prev {
+    display: none !important;
+  }
 }
 

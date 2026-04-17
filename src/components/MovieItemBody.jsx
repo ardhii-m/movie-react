@@ -13,7 +13,7 @@ function MovieItemBody({ id, title, vote_average, overview, imageUrl }) {
         />
         <p className="absolute p-2 top-2 left-2 bg-[#2C3E50] text-white font-semibold text-sm rounded-full flex items-center gap-1">
           <FaStar className="text-yellow-400" />
-          <span>{vote_average.toFixed(1)}</span>
+          <span>{vote_average?.toFixed(1) ?? "N/A"}</span>
         </p>
       </div>
       <div className="flex flex-col p-2">
